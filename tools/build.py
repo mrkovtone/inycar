@@ -82,7 +82,14 @@ def page(limit, data):
     og_img = (BASE_URL.rstrip("/") + "/assets/" + first) if BASE_URL else "../assets/" + first
     cards = []
     num = 0
-    for head, cars in data:
+    promo = f'''<section class="promo">
+  <h2>Это не все машины</h2>
+  <p>Каждый день в канале новые машины с пробегом, которые не попали в ролики. С ценой и платежом.</p>
+  <a class="btn btn--y" href="{TG}" target="_blank" rel="noopener">📲 Подписаться на канал</a>
+</section>'''
+    for bi, (head, cars) in enumerate(data):
+        if bi == 2:
+            cards.append(promo)
         cards.append(f'<h2 class="block">{e(head)}</h2>')
         for (name, year, det, km, price, pay, post, img, mark) in cars:
             num += 1
@@ -132,10 +139,10 @@ def page(limit, data):
   <a class="btn btn--o" href="{TEL}">📞 {nb(TEL_TXT)}</a>
 </header>
 {cards_html}
+{promo}
 <section class="end">
   <p class="note">Это то, что есть прямо сейчас. Авто с пробегом уходят быстро, поэтому свежий список и новые поступления смотри в Telegram.</p>
   <p class="note">Понравилась машина? Позвони или напиши, посчитаем платёж лично под тебя.</p>
-  <a class="btn btn--y" href="{TG}" target="_blank" rel="noopener">📲 Канал с машинами</a>
   <a class="btn btn--o" href="{TEL}">📞 Позвонить</a>
   <a class="btn btn--o" href="{SITE}" target="_blank" rel="noopener">🌐 Сайт inycar.ru</a>
   <p class="brand"><a href="{SITE}" target="_blank" rel="noopener">INYCAR</a></p>
@@ -143,7 +150,7 @@ def page(limit, data):
 </main>
 <nav class="bar" aria-label="Быстрые действия">
   <a href="{TEL}" class="bar__b"><span aria-hidden="true">📞</span> Позвонить</a>
-  <a href="{TG}" target="_blank" rel="noopener" class="bar__b bar__b--y"><span aria-hidden="true">📲</span> Канал</a>
+  <a href="{TG}" target="_blank" rel="noopener" class="bar__b bar__b--y"><span aria-hidden="true">📲</span> Подписаться</a>
 </nav>
 </body>
 </html>

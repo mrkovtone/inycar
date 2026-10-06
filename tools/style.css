@@ -38,3 +38,7 @@ dd{font-size:20px;font-weight:700}
 .bar__b{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;border-radius:14px;border:2px solid var(--y);color:var(--y);font-size:19px;font-weight:700}
 .bar__b--y{background:var(--y);color:#1a1a1a}
 @media (min-width:600px){h1{font-size:34px}}
+
+.promo{margin:28px 0;padding:22px 18px;border-radius:18px;background:#262626;border:2px solid var(--y);display:grid;gap:12px;text-align:center}
+.promo h2{margin:0;font-size:24px;color:var(--y)}
+.promo p{margin:0;font-size:17px;line-height:1.4;opacity:.9}
